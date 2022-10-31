@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+{% load static%}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <title>Customized Newspaper</title>
+</head>
+<body>
+    <!-- navbar -->
+    <div class="container-fluid">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark p-4">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#" id="journalname">Customized Newspaper</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav me-auto">
+                        <li class="nav-item">
+                        <a class="nav-link" href="#">Topics</a>
+                        </li>
+                    </ul>
+                    <span class="navbar-text">
+                        {{date}}
+                    </span>                
+                </div>
+            </div>
+        </nav>
+    </div>  
+          
+    <!-- content -->
+
+    <div class="container-fluid">
+        <div class="row justify-content-md-center">
+            <!-- news -->
+            <div class="col-xs-auto col-lg-6 mt-2 mb-4">
+                <div class="card">
+                    <div class="card-header">
+                        <a href="https://www.euronews.com/" id="euro"><strong>{{ newssource }}</strong></a>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        {% for title in news %}
+                            {% if 'Latest news bulletin' in title  %}
+                                <li class="list-group-item" style="background-color: #dddddd;"><strong>{{title}}</strong></li>
+                            {% else %}
+                                <li class="list-group-item">{{title}}</li>
+                            {% endif %}
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- weather -->
+            <div class="col-xs-auto col-lg-6 mt-2 mb-2">
+                <div class="card text-bg-light">
+                    <img src="media/{{weather.skyAppearance}}" class="card-img" alt="weather image">
+                    <div class="card-img-overlay">
+                        <h5 class="card-title">Weather in Krakow</h5>
+                        <p class="card-text"><strong>Sky: </strong>{{weather.sky}}</p>
+                        <p class="card-text"><strong>Temperature: </strong>{{weather.temp}} °C</p>
+                        <p class="card-text"><strong>Temperature min: </strong>{{weather.temp_min}} °C</p>
+                        <p class="card-text"><strong>Temperature max: </strong>{{weather.temp_max}} °C</p>
+                        <p class="card-text"><strong>Humidity: </strong>{{weather.humidity}}</p>                     
+                    </div>
+                </div>                               
+            </div>
+
+            <!-- carousel -->
+            <div class="container-fluid">
+                <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                    <div class="carousel-item active" data-bs-interval="10000">
+                        <img src="media/kato.jpg" class="d-block w-50" alt="...">
+                        <div class="carousel-caption d-none d-md-block">
+                        <h5>Welcome Ian! :)</h5>
+                        </div>
+                    </div>
+                    {% for key, values in carouselNews.items %}
+                        <div class="carousel-item" data-bs-interval="2000">
+                            <img src="{{ values }}" class="d-block w-50" alt="...">
+                            <div class="carousel-caption d-none d-md-block">
+                            <h5>{{ key }}</h5>
+                            </div>
+                        </div>
+                    {% endfor %}
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+            </div>
+
+        </div>
+        
+    </div>
+
+    <!-- footer -->
+
+
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+</body>
+</html>

@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from . import scraper, weather
+from . import scraper, weather, cryptusd
 import datetime
 
 # Create your views here.
@@ -14,10 +14,17 @@ def index(request):
 
     # getting the date now
     date = datetime.datetime.now()
-    dateNow = str(f'{date.day}.{date.month}.{date.year}')
+    dateNow = str(date.strftime("%d.%B.%Y"))
 
     # retrieving the weather
     weatherNow = weather.Weather()
+
+    # retrieving the cryptos' quote
+    try:
+        cryptosusd_data = cryptusd.crypto_scraper()
+    except:
+        cryptosusd_data = {}
+
 
     return render(request, 'index.html', {
         'news': newsData,
@@ -25,6 +32,7 @@ def index(request):
         'date': dateNow,
         'weather': weatherNow,
         'carouselNews': carouselData,
+        'cryptosUsdData': cryptosusd_data,
         })
 
 

@@ -1,4 +1,5 @@
 import requests
+
 def Weather():
     city = 'Krakow'
     country = 'pl'
@@ -8,7 +9,7 @@ def Weather():
     response = requests.get(url).json()
 
     skyAppearance = {
-        'Cloud':'skycloudy.jpg',
+        'Clouds':'skycloudy.jpg',
         'Clear':'sunysky.jpg',
         'Rain':'rainycloudy.jpg',
     }

@@ -3,18 +3,13 @@ body{
     padding:0;
 }
 
-#favicon{
-    color:black;
+.carousel-h5{
+    color: black;
+    font-weight: bold;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-fill-color: white;
 }
 
-.carousel-item img{
-    width: 550px;
-    height: 330px;    
+pre{
+    background-color:rgb(182, 24, 24);
 }
-
-/* mobile */
-@media (max-width:768px){
-    
-}
-
-/* desktop */

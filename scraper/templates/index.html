@@ -23,7 +23,7 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav me-auto">
                         <li class="nav-item">
-                        <a class="nav-link" href="#">Topics</a>
+                        <a class="nav-link" href="#">Topics (soon)</a>
                         </li>
                     </ul>
                     <span class="navbar-text">
@@ -38,98 +38,104 @@
         <div class="row align-items-center">
             <div class="col">
                 <marquee width="100%" direction="left" height="5px">
-                    <pre>
-                        <p><span><strong>BTC: </strong>{{cryptosUsdData.0.quote}} {{cryptosUsdData.0.var}}    </span><span><strong>ETH: </strong>{{cryptosUsdData.1.quote}} {{cryptosUsdData.1.var}}    </span><span><strong>XRP: </strong>{{cryptosUsdData.2.quote}} {{cryptosUsdData.2.var}}</span></p>
-                    </pre>
+                    <p><span><strong>BTC:&nbsp</strong>{{cryptosUsdData.0.quote}}&nbsp&nbsp{{cryptosUsdData.0.var}}&nbsp&nbsp&nbsp&nbsp</span>
+                        <span><strong>ETH:&nbsp</strong>{{cryptosUsdData.1.quote}}&nbsp&nbsp{{cryptosUsdData.1.var}}&nbsp&nbsp&nbsp&nbsp</span>
+                        <span><strong>XRP:&nbsp</strong>{{cryptosUsdData.2.quote}}&nbsp&nbsp{{cryptosUsdData.2.var}}&nbsp&nbsp&nbsp&nbsp</span></p>
                 </marquee>
             </div>          
         </div>        
     </div>
-
     <!-- content -->
-    <div class="container-fluid">
-        <div class="row justify-content-md-center">
-            <!-- news content-->
-            <div class="col-xs-auto col-lg-6 mt-4 mb-4">
-                <div class="card">
-                    <div class="card-header">
-                        <a href="https://www.euronews.com/" id="euro"><strong>{{ newssource }}</strong></a>
-                    </div>
-                    <ul class="list-group list-group-flush">
-                        {% for title in news %}
-                            {% if 'Latest news bulletin' in title  %}
-                                <li class="list-group-item" style="background-color: #dddddd;"><strong>{{title}}</strong></li>
-                            {% else %}
-                                <li class="list-group-item">{{title}}</li>
-                            {% endif %}
-                        {% endfor %}
-                    </ul>
-                </div>
-            </div>
-            
-            <!-- different content -->
-            <div class="col-xs-auto col-lg-6 mt-4 mb-2">
-                <!-- weather -->
-                <div class="row">
-                    <div class="col">
-                        <div class="card text-bg-light">
-                            <img src="media/{{weather.skyAppearance}}" class="card-img" alt="weather image">
-                            <div class="card-img-overlay">
-                                <h5 class="card-title pb-3">Weather in Krakow</h5>
-                                <p class="card-text"><strong>Sky: </strong>{{weather.sky}}</p>
-                                <p class="card-text"><strong>Temperature: </strong>{{weather.temp}} °C</p>
-                                <p class="card-text"><strong>Temperature min: </strong>{{weather.temp_min}} °C</p>
-                                <p class="card-text"><strong>Temperature max: </strong>{{weather.temp_max}} °C</p>
-                                <p class="card-text"><strong>Humidity: </strong>{{weather.humidity}} %</p>                     
-                            </div>
+    <div class="mt-2 mb-2">
+        <div class="container-fluid">
+            <div class="row justify-content-md-center">
+                <!-- news content-->
+                <div class="col-xs-auto col-lg-6 mt-4 mb-4">
+                    <div class="card">
+                        <div class="card-header">
+                            <a href="https://www.euronews.com/" id="euro"><strong>{{ newssource }}</strong></a>
                         </div>
-                    </div>                     
+                        <ul class="list-group list-group-flush">
+                            {% for title in news %}
+                                {% if 'Latest news bulletin' in title  %}
+                                    <li class="list-group-item" style="background-color: #dddddd;"><strong>{{title}}</strong></li>
+                                {% else %}
+                                    <li class="list-group-item">{{title}}</li>
+                                {% endif %}
+                            {% endfor %}
+                        </ul>
+                    </div>
                 </div>
-                <!-- carousel -->
-                <div class="row">
-                    <div class="col mt-4 mb-2">
-                        <h3><strong>Images of the day</strong></h3>
-                        <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
-                            <div class="carousel-inner">
-                                <div class="carousel-item active" data-bs-interval="10000">
-                                    <img src="media/kato.jpg" class="d-block w-100 h-50 mx-auto" alt="...">
-                                    <div class="carousel-caption d-none d-md-block">
-                                        <h5 class="carousel-h5">Welcome Ian! :)</h5>
-                                    </div>
-                                </div>                                
-                                {% for key, values in carouselNews.items %}
-                                    <div class="carousel-item" data-bs-interval="10000">
-                                        <img src="{{ values }}" class="d-block w-100 h-50 mx-auto" alt="...">
-                                        <div class="carousel-caption d-none d-md-block">
-                                            <h5 class="carousel-h5">{{ key }}</h5>
-                                        </div>
-                                    </div>
-                                {% endfor %}
-                                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
-                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                    <span class="visually-hidden">Previous</span>
-                                </button>
-                                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
-                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                    <span class="visually-hidden">Next</span>
-                                </button>
+                
+                <!-- different content -->
+                <div class="col-xs-auto col-lg-6 mt-4 mb-2">
+                    <!-- weather -->
+                    <div class="row">
+                        <div class="col">
+                            <div class="card text-bg-light">
+                                <img src="media/{{weather.skyAppearance}}" class="card-img" alt="weather image">
+                                <div class="card-img-overlay">
+                                    <h5 class="card-title pb-3">Weather in Krakow</h5>
+                                    <p class="card-text"><strong>Sky: </strong>{{weather.sky}}</p>
+                                    <p class="card-text"><strong>Temperature: </strong>{{weather.temp}} °C</p>
+                                    <p class="card-text"><strong>Temperature min: </strong>{{weather.temp_min}} °C</p>
+                                    <p class="card-text"><strong>Temperature max: </strong>{{weather.temp_max}} °C</p>
+                                    <p class="card-text"><strong>Humidity: </strong>{{weather.humidity}} %</p>                     
+                                </div>
                             </div>
-                        </div>                            
-                    </div>                    
-                </div>              
-                    
-                                    
+                        </div>                     
+                    </div>
+                    <!-- carousel -->
+                    <div class="row">
+                        <div class="col mt-4 mb-2">
+                            <h3><strong>Images of the day</strong></h3>
+                            <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
+                                <div class="carousel-inner">
+                                    <div class="carousel-item active" data-bs-interval="10000">
+                                        <img src="media/kato.jpg" class="d-block w-100 h-50 mx-auto" alt="...">
+                                        <div class="carousel-caption d-none d-md-block">
+                                            <h5 class="carousel-h5">Dzień dobry Ian! <span><i class="bi bi-emoji-smile"></i></span></h5>
+                                        </div>
+                                    </div>                                
+                                    {% for key, values in carouselNews.items %}
+                                        <div class="carousel-item" data-bs-interval="10000">
+                                            <img src="{{ values }}" class="d-block w-100 h-50 mx-auto" alt="...">
+                                            <div class="carousel-caption d-none d-md-block">
+                                                <h5 class="carousel-h5">{{ key }}</h5>
+                                            </div>
+                                        </div>
+                                    {% endfor %}
+                                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+                                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                        <span class="visually-hidden">Previous</span>
+                                    </button>
+                                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
+                                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                        <span class="visually-hidden">Next</span>
+                                    </button>
+                                </div>
+                            </div>                            
+                        </div>                    
+                    </div>                                 
+                </div>
             </div>
         </div>
     </div>
-
     <!-- footer -->
-    <div class="container">
-        <div class="m-4">
-            <p>Aqui vai o footer</p>
-        </div>
-    </div>    
-
+    <div class="container-fluid">        
+        <div class="card text-center" id="footer">
+            <div class="card-header">
+                <strong>Ian's Customized Newspaper</strong> 
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">This site is for personal ends <strong>ONLY</strong>.</h5>
+                <a href="https://github.com/ianchristani" class="btn btn-outline-secondary">About the author</a>
+            </div>
+            <div class="card-footer text-muted">
+                Copyrights &copy
+            </div>
+        </div>        
+    </div>
     <!-- JavaScript Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
 </body>
